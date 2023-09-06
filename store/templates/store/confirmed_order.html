@@ -1,0 +1,46 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="slider-container">
+    <div class="slider">
+        <div class="slide">
+            <img src="{% static '/store/img/slider1.jpg' %}" alt="">
+            <div class="slide-content-order">
+                <h1>ORDENES DE PEDIDOS</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fa-regular fa-face-smile fa-5x mb-4" style="color: #000000;" aria-hidden="true"></i>
+                    <h2 class="card-title product-title">Pedido #{{ order.pk }} creado con éxito</h2>
+                    <p class="lead">Aqui te dejamos un  resumen del pedido: </p> 
+                    
+                    <div class="order-resume">
+                        <ul>
+                            <li><p><strong>Vendedor:</strong> {{ order.usuario }}</p></li>
+                            <li><p><strong>Nombre:</strong> {{ order.nombre }}</p></li>
+                            <li><p><Strong>Direccion de Despacho:</Strong> {{ order.direccion }}</p></li>
+                            <li><p><strong>Email:</strong> {{ order.email }}</p></li>
+                            <li><p><strong>Producto:</strong> {{ order.producto }}</p></li>
+                            <li><p><strong>Cantidad:</strong> {{ order.cantidad }}</p></li>
+                            <li><p><strong>Numero de Orden</strong> {{ order.pk }}</p></li>
+                            <li><p><strong>Estado del Pedido:</strong> {{ order.estado_pedido }}</p></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a href="{% url 'store:new_order' %}" class="button-return">Volver a la página de pedidos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

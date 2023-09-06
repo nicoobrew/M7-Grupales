@@ -1,0 +1,448 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'store/css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'store/img/adadis-favicon.png' %}" type="image/x-icon">
+    {% block title %}<title>adadis Chile Tienda not oficial | Zapatillas y ropa deportiva</title>{% endblock %}
+
+</head>
+
+<body>
+    <header>
+        <div class="info-bar">
+            <p id="dynamic-info">⏳ FASHION SALE ESTÁN POR TERMINAR | HASTA 60% OFF ⌛️</p>
+        </div>
+        <div class="header-categories">
+            <ul class="category-list">
+                <li>
+                    {% if user.is_authenticated %}
+                    <p>Bienvenido(a), {{ user.username }} </p>
+                    {% else %}
+                    <p>No has iniciado sesión.</p>
+                    {% endif %}
+                </li>
+
+                <li>
+                    <a href="{% url 'store:new_order' %}">Nuevo pedido</a>
+                </li>
+                <li>
+                    <a href="{% url 'store:orders' %}">Pedidos</a>
+                </li>
+                <li>
+                    <a href="{% url 'store:hacer_pedido' %}">Hacer pedido</a>
+                </li>
+                <li>
+                    <a href="{% url 'store:tus_pedidos' %}">Tus Pedidos</a>
+                </li>
+
+                <li>
+                    <a href="">seguimiento de pedidos</a>
+                </li>
+                <li>
+                    <a href="">únete al club</a>
+                </li>
+            </ul>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Toggle button -->
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <a class="navbar-brand mt-2 mt-lg-0 " href="{% url 'store:index' %}">
+                        <img src="{% static '/store/img/adadis-logo.png' %}" height="50" alt="Logo" loading="lazy"
+                            class="rotated-image" />
+                    </a>
+                    <div class="collapse navbar-collapse justify-content-center ">
+                        <ul class="navbar-nav navbar-font">
+                            <li class="nav-item">
+                                <a class="nav-link navbar-font-a" href="#">MUJER</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link navbar-font-a" href="#">HOMBRE</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link navbar-font-a" href="#">NIÑOS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="#">NOVEDADES</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">DEPORTE</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">MUNDO ADADIS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link navbar-font-a" href="#">OUTLET</a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <!-- Avatar -->
+                    <div class="dropdown">
+                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
+                            id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-user" style="color: #000000;"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownMenuAvatar">
+
+                            {% if user.is_authenticated %}
+                            <li>
+                                <a class="dropdown-item" href="{% url 'users:logout' %}">Logout</a>
+                            </li>
+                            {% else %}
+                            <li>
+                                <a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#modal-login">Login</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'users:register' %}">Registrate</a>
+                            </li>
+                            {% endif %}
+
+                        </ul>
+                    </div>
+                    <!-- Cart -->
+                    <div class="m-2 dropdown">
+
+                        <i class="fa-solid fa-cart-shopping" style="color: #000000;"></i>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    {% block content %}
+    {% endblock content %}
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-white text-muted">
+
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom footer-top">
+            <div class="d-flex align-items-center mx-auto">
+                <span>ÚNETE AL CLUB Y AHORRA UN 15%</span>
+                <button type="button" class="button-footer button-text">REGÍSTRATE GRATIS</button>
+            </div>
+        </section>
+
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-footer">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4 ">
+                            Productos
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">Calzado</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Zapatillas</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Ropa</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Accesorios</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Zapatos de Fútbol</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Cortavientos</a>
+                        </p>
+                        <br>
+                        <p>
+                            <a href="#!" class="text-reset">Buzos</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Novedades</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Outlet</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">adiClub</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 text-footer">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Deportes
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">Universidad de Chile</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Colo Colo</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Fútbol</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Running</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Basketball</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Training y Gimnasio</a>
+                        </p>
+                        <br>
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            COLECCIONES
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">Ultraboost</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Stan Smith</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Terrex</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Forum</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Originals</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">adicolor</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Superstar</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Falcon</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-footer">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Asistencia
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">Dudas Frecuentes</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Guia de Tallas</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Productos adidas</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Realizar Pedidos</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Solicitar mi Devolución</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Pago</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Envío</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Devoluciones</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Como Saber la Talla de tu Bra</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Mapa del Sitio</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-footer">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Asistencia
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">Dudas Frecuentes</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Guia de Tallas</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Productos adidas</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Realizar Pedidos</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Solicitar mi Devolución</a>
+                        </p>
+
+                    </div>
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-md-0 mb-4 text-footer">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">SIGUENOS</h6>
+                        <ul>
+                            <li>
+                                <a href="" class="">
+                                    <i class="fa-brands fa-facebook fa-2xl" style="color: #000000;"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="">
+                                    <i class="fa-brands fa-square-x-twitter fa-2xl" style="color: #000000;"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="me-4 text-reset">
+                                    <i class="fa-brands fa-tiktok fa-2xl" style="color: #000000;"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="me-4 text-reset">
+                                    <i class="fa-brands fa-instagram fa-2xl" style="color: #000000;"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Copyright -->
+        <section class="footer-bottom">
+            <div class="text-center p-4">
+
+                <a class="text-reset" href="#">© 2023 adadis Chile LTDA</a>
+            </div>
+        </section>
+
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+    <!-- Modal login -->
+    <div id="modal-login" class="modal" tabindex="-1">
+        <div class="modal-dialog d-flex align-items-center justify-content-center">
+            <div class="modal-content">
+                <div class="modal-header d-flex align-items-center justify-content-center">
+                    <div>
+                        <h5 class="text-center">¡Qué bueno tenerte de vuelta!</h5>
+                    </div>
+                    <div class="close-button-container">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="modal-body h-100">
+                    <div class="card">
+                        <div class="card-body ">
+                            <form class="form-login" action="{% url 'users:login' %}" method="POST">
+                                {% csrf_token %}
+                                {{ form_login | crispy}}
+
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <input class="button-login" type="submit" value="Ingresar">
+                                </div>
+
+                            </form>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <span class="prueba">¿No tienes cuenta? Regístrate</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% comment %}
+    <script>
+        const modal = document.getElementById("modal-login");
+        const activateLogin = document.querySelector("#navbarDropdownMenuAvatar ")
+    </script> {% endcomment %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha384-og4fLkB6Kn3GnykXjWhqxXFzF1oSNvt0+0Ds9eF5mKUkDVGhQh1zQVzGe3dLIhBw"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/aa5922055b.js" crossorigin="anonymous"></script>
+    <script src="{% static 'store/js/script.js' %}"></script>
+
+
+    <script>
+        const avatarDropdown = document.getElementById('navbarDropdownMenuAvatar');
+        avatarDropdown.addEventListener('click', toggleDropdown);
+        function toggleDropdown(event) {
+            event.preventDefault();
+            const dropdownMenu = this.nextElementSibling;
+            dropdownMenu.classList.toggle('show');
+        }
+    </script>
+
+
+    <script>
+        // Funcion para actualizar la información dinámica en el navbar
+        function updateDynamicInfo() {
+            const messages = [
+                "⏳ FASHION SALE ESTÁN POR TERMINAR | HASTA 60% OFF ⌛️",
+                "ENVÍO GRATIS PARA MIEMBROS ADICLUB",
+                "DOBLE PUNTOS CON ADICLUB. ENTRA YA A NUESTRO CATÁLOGO MUNDIALISTA"
+            ];
+
+            const dynamicInfo = document.getElementById("dynamic-info");
+            let currentIndex = 0;
+
+            function updateMessage() {
+                dynamicInfo.textContent = messages[currentIndex];
+                currentIndex = (currentIndex + 1) % messages.length;
+            }
+
+            updateMessage(); // Muestra el primer mensaje al cargar la página
+            setInterval(updateMessage, 6000); // Cambia el mensaje cada 5 segundos
+        }
+
+        // Llama a la función de actualización después de que la página cargue
+        window.onload = updateDynamicInfo;
+
+    </script>
+</body>
+
+</html>

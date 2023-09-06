@@ -1,0 +1,20 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body text-center">
+            <i class="fa-solid fa-heart-crack fa-5x mb-4" style="color: #ff0000;" aria-hidden="true"></i>
+            <h2 class="mb-3">¡Te has desconectado!</h2>
+            <p class="lead">Gracias por visitarnos. Esperamos verte pronto de nuevo.</p> <i class="fa-solid fa-hand-wave"></i>
+            <i class="fa-solid fa-hand-wave"></i>
+            <a href="{% url 'store:index' %}" class="btn button-return">Volver a la página principal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

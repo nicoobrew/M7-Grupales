@@ -1,0 +1,74 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+<div class="slider-container">
+    <div class="slider">
+        <div class="slide">
+            <img src="{% static '/store/img/slider1.jpg' %}" alt="">
+            <div class="slide-content-order">
+                <h1>ORDENES DE PEDIDOS</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div>
+            <a href="{% url 'store:new_order' %}" class="button-new-order">Nuevo Pedido</a>
+        </div>
+        <div class="">
+            <div class="accordion" id="accordionFlushExample">
+                {% for order in orders %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapse-{{ order.id }}" aria-expanded="false"
+                            aria-controls="flush-collapse-{{ order.id }}">
+                            <h5 class="card-title product-title">Orden de Pedido #{{ order.id }}</h5>
+                        </button>
+                    </h2>
+                    <div id="flush-collapse-{{ order.id }}" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body ">
+                            <div class="order-resume">
+                                <ul>
+                                    <li>
+                                        <p><strong>Vendedor:</strong> {{ order.usuario }}</p>
+                                    </li>
+                                    <li>
+                                        <p><strong>Nombre:</strong> {{ order.nombre }}</p>
+                                    </li>
+                                    <li>
+                                        <p><Strong>Direccion de Despacho:</Strong> {{ order.direccion }}</p>
+                                    </li>
+                                    <li>
+                                        <p><strong>Email:</strong> {{ order.email }}</p>
+                                    </li>
+                                    <li>
+                                        <p><strong>Producto:</strong> {{ order.producto }}</p>
+                                    </li>
+                                    <li>
+                                        <p><strong>Cantidad:</strong> {{ order.cantidad }}</p>
+                                    </li>
+                                    <li>
+                                        <p><strong>Estado del Pedido:</strong> {{ order.estado_pedido }}</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="{% url 'store:order_details' pk=order.pk %}" class="button-order-details">Modificar
+                                Pedido</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

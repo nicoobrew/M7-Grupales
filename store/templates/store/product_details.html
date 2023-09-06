@@ -1,0 +1,65 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+{% block title %}<title>{{ object.titulo }}</title>{% endblock %} 
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="{{ object.imagen.url }}" class="card-img-top imgCardProducto" alt="Fissure in Sandstone" />
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title product-title">{{ object.titulo }}</h5>
+            <p class="card-text product-description">{{ object.descripcion }}</p>
+            <p class="product-price">Precio: ${{ object.precio|intcomma }}</p>
+           
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <div class="input-group">
+                  <span class="input-group-text">Cantidad</span>
+                  <button class="btn btn-outline-secondary button-amount" type="button" id="decrement-btn">-</button>
+                  <input type="text" class="form-control text-center" id="cantidad" value="1" readonly>
+                  <button class="btn btn-outline-secondary button-amount" type="button" id="increment-btn">+</button>
+              </div>
+              
+              </div>
+              <div class="col-md-8">
+                <a href="#!" class="btn me-3 font-button button-cart">Añadir al Carrito</a>
+                <a href="#!" class="btn font-button button-buy">Comprar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const incrementBtn = document.getElementById("increment-btn");
+      const decrementBtn = document.getElementById("decrement-btn");
+      const cantidadInput = document.getElementById("cantidad");
+  
+      incrementBtn.addEventListener("click", function () {
+        let cantidad = parseInt(cantidadInput.value);
+        cantidadInput.value = cantidad + 1;
+      });
+  
+      decrementBtn.addEventListener("click", function () {
+        let cantidad = parseInt(cantidadInput.value);
+        if (cantidad > 1) {
+          cantidadInput.value = cantidad - 1;
+        }
+      });
+    });
+  </script>
+
+
+{% endblock %}

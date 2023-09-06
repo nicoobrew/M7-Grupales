@@ -1,0 +1,32 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+
+
+<!--  Pedidos  -->
+<div class="container mt-5">
+    <div class="row justify-content-center align-items-stretch">
+        {% for producto in object_list %}
+        <div class="card mb-4 col-md-3 mx-3 text-product card-products">
+            <a href="{% url 'store:details' pk=producto.id %} ">
+                {% if producto.imagen %}
+                <div class=" d-flex flex-column justify-content-between product-card">
+                    <img src="{{ producto.imagen.url }}" alt="{{ producto.titulo }}" class="card-img-top" />
+                    <span class="product-price-badge">{{ producto.precio|intcomma }} CLP</span>
+                </div>
+
+                {% endif %}
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title mb-0">
+                        {{ producto.titulo }}
+                    </h5>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

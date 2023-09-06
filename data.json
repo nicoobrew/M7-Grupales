@@ -1,0 +1,91 @@
+[
+    {
+        "model": "store.product",
+        "pk": 1,
+        "fields": {
+            "titulo": "ZAPATILLAS NIZZA PLATAFORM",
+            "descripcion": "ZAPATILLAS CON PLATAFORMA INSPIRADAS EN LOS 70 Y CREADAS CON PARLEY OCEAN PLASTIC\r\n\r\nNacidas en las canchas de b�squet en los a�os 70, han evolucionado para convertirse en un referente del estilo casual. Las Nizza Platform con su plataforma elevada son el siguiente cap�tulo de esta historia de �xito.\r\n\r\nEl exterior de este calzado est� confeccionado con hilo de alto rendimiento que contiene al menos un 50% de Parley Ocean Plastic, un material que ha sido recuperado de residuos pl�sticos recogidos en islas, playas, comunidades costeras y costas evitando que contaminen nuestros oc�anos. El otro 50 % del hilo est� hecho de poli�ster reciclado.",
+            "precio": 50990,
+            "imagen": "store/img/tillas_1.png"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 2,
+        "fields": {
+            "titulo": "ZAPATILLAS D-PAD",
+            "descripcion": "ZAPATILLAS INSPIRADAS EN EL B�SQUET QUE EST�N LISTAS PARA DOMINAR LA CANCHA.\r\n\r\nConsigue un aut�ntico dise�o con inspiraci�n de b�squet con estas zapatillas adadis neo. Parte de la mediasuela queda expuesta, para que puedas experimentar comodidad y estilo a la vez. Las 3 Tiras en bajo relieve tienen un \"look escalonado\" que lleva tu estilo a otro nivel.",
+            "precio": 62990,
+            "imagen": "store/img/tillas_2.png"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 3,
+        "fields": {
+            "titulo": "ZAPATILLAS FORUM EXHIBIT LOW",
+            "descripcion": "ZAPATILLAS CL�SICAS INSPIRADAS EN EL B�SQUET CON UN LOOK A CUADROS.\r\n\r\nLa versatilidad de las zapatillas adadis Forum Exhibit Low queda demostrada por la ecl�ctica variedad de lugares de donde toman inspiraci�n. Este par lleva la audacia al siguiente nivel con un patr�n tart�n en el distintivo detalle del tobillo en X y una suela de caucho natural. Las siluetas m�s cl�sicas de adadis nunca le temen a la aventura, y t� tampoco.",
+            "precio": 99990,
+            "imagen": "store/img/tillas_3.png"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 4,
+        "fields": {
+            "titulo": "ZAPATILLAS D-PAD",
+            "descripcion": "ZAPATILLAS INSPIRADAS EN EL B�SQUET QUE EST�N LISTAS PARA DOMINAR LA CANCHA.\r\n\r\nConsigue un aut�ntico dise�o con inspiraci�n de b�squet con estas zapatillas adadis neo. Parte de la mediasuela queda expuesta, para que puedas experimentar comodidad y estilo a la vez. Las 3 Tiras en bajo relieve tienen un \"look escalonado\" que lleva tu estilo a otro nivel",
+            "precio": 62990,
+            "imagen": "store/img/tillas_4.png"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 5,
+        "fields": {
+            "titulo": "ZAPATILLAS FORUM LOW CLASSIC",
+            "descripcion": "UNA VERSI�N MODERNA DE UN MODELO CL�SICO\r\n\r\nUn cl�sico siempre luce bien. Estas zapatillas adadis Forum Low se inspiran en los a�os 80 e incorporan una mezcla de gamuza, cuero y cuero sint�tico en el exterior para crear una versi�n moderna. Estas zapatillas combinan con looks deportivos y juveniles, destacando tu lado m�s aut�ntico",
+            "precio": 94990,
+            "imagen": "store/img/tillas_5.png"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 6,
+        "fields": {
+            "titulo": "ZAPATILLAS SAMBA ADADIS ORIGINALS",
+            "descripcion": "UNAS ZAPATILLAS MUNDIALMENTE RECONOCIDAS Y QUE ESTA VEZ REGRESAN INSPIRADAS EN EL F�TBOL DE LOS �NGELES.\r\n\r\nLas zapatillas adadis Samba nacieron para la cancha, pero con los a�os se han convertido en un �cono de estilo urbano. Esta edici�n se inspira en la cultura futbolera de Los �ngeles con un look sencillo que no pasa desapercibido. El exterior de gamuza premium y la cl�sica suela de caucho son detalles emblem�ticos de nuestro legado. Esta prenda informal combina con todo, desde pantalones ajustados hasta jeans holgados.",
+            "precio": 99990,
+            "imagen": "store/img/tillas_6.png"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 7,
+        "fields": {
+            "titulo": "CAMISETA LOCAL SELECCI�N CHILENA 22/23",
+            "descripcion": "PARA LOS INCONDICIONALES HINCHAS CHILENOS\r\n\r\nOrgullo e Identidad nacional, es lo que caracteriza y expresa la nueva camiseta de la Federaci�n de F�tbol de Chile, que viene a formar parte del ADN del hincha, luciendo sus colores tradicionales en homenaje a la bandera y a los valores que nos conectan como chilenos, y hace que apoyemos siempre a esta gran Selecci�n. \"LA ROJA DE TODOS\", sigue dando un mensaje de inspiraci�n e inclusi�n como frase caracter�stica, que hace que hoy m�s que nunca estemos todos apoyando a nuestro equipo. Incorpora en los laterales un detalle en degrad� que hace de esta camiseta realmente un dise�o �nico y original\r\nHecho de tejido suave y absorbente que te mantiene c�modo incluso en los momentos m�s intensos en la cancha.",
+            "precio": 44990,
+            "imagen": "store/img/camiseta_1.png"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 8,
+        "fields": {
+            "titulo": "CALCETINES LARGOS SOLID 3 PARES (UNISEX)",
+            "descripcion": "Los calcetines largos Solid garantizan una mayor comodidad gracias a una plantilla semiamortiguada. Elaborados con algod�n ligeramente el�stico en varios colores, estos calcetines para hombre tienen una altura m�s elevada, as� como tres rayas y un Trifolio en los bordes acanalados.",
+            "precio": 17990,
+            "imagen": "store/img/calcetas_1.png"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 9,
+        "fields": {
+            "titulo": "BOLSO ADICOLOR CLASSIC FESTIVAL",
+            "descripcion": "UN BOLSO CRUZADO VERS�TIL HECHO PARCIALMENTE CON MATERIALES RECICLADOS.\r\n\r\nTanto si vas a la playa, a un brunch o a un festival, este bolso adidas Adicolor es la elecci�n perfecta para llevar contigo todos los objetos imprescindibles. Presenta un dise�o confeccionado en tejido t�cnico muy resistente al desgaste e incluye un compartimento principal con cierre en la parte superior y un bolsillo frontal con cierre. La correa cruzada ajustable permite cambiar de look en un abrir y cerrar de ojos.\r\n\r\nHecho con una serie de materiales reciclados y al menos un 40 % de contenido reciclado, este producto representa solo una de nuestras soluciones para ayudar a ponerle fin a la contaminaci�n por pl�stico.",
+            "precio": 27990,
+            "imagen": "store/img/mochila_1.png"
+        }
+    }]

@@ -1,0 +1,33 @@
+{% extends 'store/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+<div class="slider-container">
+    <div class="slider">
+        <div class="slide">
+            <img src="{% static '/store/img/slider1.jpg' %}" alt="">
+            <div class="slide-content-order">
+                <h1>Pedido Nuevo</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row d-flex justify-content-center mt-5 mb-5">    
+    <div class="col-12 col-lg-5">
+        <div class="card">
+            <div class="card-body form-new-order">
+                <h1>Realiza un nuevo pedido</h1>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form_order|crispy }}
+                    <input type="submit" class="btn btn-sucess" value="Register">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
